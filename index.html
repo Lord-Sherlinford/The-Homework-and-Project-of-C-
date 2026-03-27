@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>板球打砖块游戏</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a2e;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+        
+        canvas {
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            background-color: #16213e;
+        }
+        
+        .game-info {
+            margin-bottom: 10px;
+            font-size: 20px;
+            display: flex;
+            gap: 50px;
+        }
+        
+        .score, .lives {
+            font-weight: bold;
+        }
+        
+        .game-over {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .game-over h2 {
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+        
+        .restart-btn {
+            background-color: #00d4ff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .restart-btn:hover {
+            background-color: #00b3cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏏 板球打砖块游戏</h1>
+    <div class="game-info">
+        <div class="score">得分: <span id="score">0</span></div>
+        <div class="lives">生命值: <span id="lives">3</span></div>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <div class="game-over" style="display: none;">
+        <h2>游戏结束</h2>
+        <p>你的最终得分: <span id="final-score"></span></p>
+        <button class="restart-btn" onclick="restartGame()">重新开始</button>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
